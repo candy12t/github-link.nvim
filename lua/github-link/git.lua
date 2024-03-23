@@ -1,19 +1,23 @@
 local M = {}
 
 function M.get_current_commit()
-  return vim.fn.system("git rev-parse HEAD")
+  local result = vim.fn.system("git rev-parse HEAD")
+  return string.gsub(result, "\n", "")
 end
 
 function M.get_current_branch()
-  return vim.fn.system("git rev-parse --abbrev-ref HEAD")
+  local result = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+  return string.gsub(result, "\n", "")
 end
 
 function M.get_top_directory()
-  return vim.fn.system("git rev-parse --show-toplevel")
+  local result = vim.fn.system("git rev-parse --show-toplevel")
+  return string.gsub(result, "\n", "")
 end
 
 function M.get_remote_url()
-  return vim.fn.system("git ls-remote --get-url origin")
+  local result = vim.fn.system("git ls-remote --get-url origin")
+  return string.gsub(result, "\n", "")
 end
 
 return M
