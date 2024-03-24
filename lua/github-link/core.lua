@@ -9,7 +9,7 @@ local get_current_filepath = function()
   return vim.fn.expand("%:p")
 end
 
-local resovle_ref = function(ref_type)
+local resolve_ref = function(ref_type)
   if ref_type == M.ref_type_commit then
     return git.get_current_commit()
   elseif ref_type == M.ref_type_branch then
@@ -57,7 +57,7 @@ local to_repo_url = function(url)
 end
 
 function M.get_link(ref_type, start_line, end_line)
-  local ok, ref = pcall(resovle_ref, ref_type)
+  local ok, ref = pcall(resolve_ref, ref_type)
   if not ok then
     vim.api.nvim_err_writeln(tostring(ref))
     return
