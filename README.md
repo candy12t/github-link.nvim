@@ -29,9 +29,9 @@ require("github-link").setup()
 
 Select line in visual mode and execute the command.
 
-* `:GetCurrentCommitLink`
+* `:GitHubLink get_commit_link`
   * generate `https://github.com/OWNER/REPO/blob/COMMIT_HASH/PATH/TO/FILE#L1-L10`
-* `:GetCurrentBranchLink`
+* `:GitHubLink get_branch_link`
   * generate `https://github.com/OWNER/REPO/blob/BRANCH/PATH/TO/FILE#L1-L10`
 
 ## License

@@ -1,15 +1,18 @@
 local git = require("github-link.git")
 
-local M = {}
+local M = {
+  ref_type_commit = "commit",
+  ref_type_branch = "branch",
+}
 
 local get_current_filepath = function()
   return vim.fn.expand("%:p")
 end
 
 local resovle_ref = function(ref_type)
-  if ref_type == "commit" then
+  if ref_type == M.ref_type_commit then
     return git.get_current_commit()
-  elseif ref_type == "branch" then
+  elseif ref_type == M.ref_type_branch then
     return git.get_current_branch()
   else
     error(string.format("invalid ref type: %s", ref_type), 0)
