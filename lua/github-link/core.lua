@@ -16,7 +16,6 @@ local resovle_ref = function(ref_type)
     return git.get_current_branch()
   else
     error(string.format("invalid ref type: %s", ref_type), 0)
-    return
   end
 end
 
@@ -54,7 +53,6 @@ local to_repo_url = function(url)
     return string.format("https://github.com/%s", trim_suffix_git(matches[2]))
   else
     error(string.format("invalid or unsupported protocol url: %s", url), 0)
-    return
   end
 end
 
